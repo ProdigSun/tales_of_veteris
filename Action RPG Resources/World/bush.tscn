@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jht0ac86qh1h"]
+
+[ext_resource type="Texture2D" uid="uid://drmbhqpo878ak" path="res://Action RPG Resources/World/Bush.png" id="1_p5up6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0c4nk"]
+radius = 8.0
+height = 32.0
+
+[node name="Bush" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p5up6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0c4nk")
