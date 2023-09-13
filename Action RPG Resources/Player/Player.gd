@@ -11,12 +11,14 @@ enum {
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var hitbox = $HitboxPivot/SwordHitBox
+
 var state = MOVE
 var roll_vector = Vector2.DOWN
 
 func _ready():
 	animationTree.active = true
-
+	hitbox.knockback_vector = roll_vector
 func _physics_process(delta):
 	match state:
 		MOVE:
@@ -36,6 +38,7 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		# AVOID ROLLING WHEN MOVIMENT IS 0, ROLLS TO LAST KNOWN LOCATION
 		roll_vector = input_vector
+		hitbox.knockback_vector = input_vector
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
