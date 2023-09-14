@@ -14,4 +14,10 @@ func _on_hurtbox_area_entered(area):
 
 
 func _on_stats_death():
+	var DeathEffect = load("res://Action RPG Resources/Enemies/enemy_death_effect.tscn")
+	var deathEffect = DeathEffect.instantiate()
+	var main = get_tree().current_scene
+	main.add_child(deathEffect)
+	deathEffect.global_position = global_position
 	queue_free()
+
