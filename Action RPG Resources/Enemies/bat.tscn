@@ -83,5 +83,6 @@ shape = SubResource("CapsuleShape2D_nyk1f")
 max_health = 1.5
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="death" from="Stats" to="." method="_on_stats_death"]
 
 [editable path="Hurtbox"]

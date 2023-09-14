@@ -9,10 +9,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hurtbox_area_entered(area):
-	stats.health -= 1
-	
-	if stats.health <= 0:
-		queue_free()
-	
+	stats.health -= area.damage
 	velocity = area.knockback_vector * 100
 
+
+func _on_stats_death():
+	queue_free()
