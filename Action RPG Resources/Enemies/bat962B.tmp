@@ -66,7 +66,6 @@ radius = 7.0
 height = 14.0
 
 [node name="Bat" type="CharacterBody2D"]
-z_index = 1
 collision_layer = 16
 script = ExtResource("1_vuf1f")
 
