@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpkrw8cifylaa"]
+[gd_scene load_steps=17 format=3 uid="uid://dpkrw8cifylaa"]
 
+[ext_resource type="PackedScene" uid="uid://dxfq5x4eynkvx" path="res://Action RPG Resources/UI/health_ui.tscn" id="1_3a0ww"]
 [ext_resource type="Texture2D" uid="uid://ck1se3rbhr18s" path="res://Action RPG Resources/World/GrassBackground.png" id="1_prb4p"]
 [ext_resource type="PackedScene" uid="uid://jht0ac86qh1h" path="res://Action RPG Resources/World/bush.tscn" id="2_0bhxs"]
 [ext_resource type="PackedScene" uid="uid://b1iei47j01wj" path="res://Action RPG Resources/player.tscn" id="2_5q624"]
@@ -1684,3 +1685,5 @@ position = Vector2(146, 155)
 
 [node name="Bat3" parent="." instance=ExtResource("7_xkgtf")]
 position = Vector2(42, 102)
+
+[node name="HealthUI" parent="." instance=ExtResource("1_3a0ww")]
