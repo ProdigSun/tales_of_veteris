@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var stats = $Stats
 @onready var playerDetectionZone = $PlayerDetectionZone
 @onready var hurtbox = $Hurtbox
+@onready var softCollisionArea = $SoftCollisionArea
 
 enum {
 	IDLE, WANDER, CHASE
@@ -20,7 +21,7 @@ func _ready():
 	
 func _physics_process(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, 200 * delta)
-	move_and_slide()
+
 	
 	match state:
 		IDLE:
@@ -36,6 +37,10 @@ func _physics_process(delta):
 				sprite.flip_h = velocity.x < 0
 			else:
 				state = IDLE
+	if softCollisionArea.is_colliding():
+		var push_vector = softCollisionArea.generate_push_vector()
+		velocity += push_vector * delta * 400
+	move_and_slide()
 func seek_player():
 	if playerDetectionZone.can_see_player():
 		print("Player found")
