@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccw3s7lkf1pw2"]
+[gd_scene load_steps=21 format=3 uid="uid://ccw3s7lkf1pw2"]
 
 [ext_resource type="Texture2D" uid="uid://ur34e6rsfps8" path="res://Action RPG Resources/Enemies/Bat.png" id="1_4308l"]
 [ext_resource type="Script" path="res://Action RPG Resources/Enemies/bat.gd" id="1_vuf1f"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gsrrklg8l4y" path="res://Action RPG Resources/Enemies/player_detection_zone.tscn" id="6_oodn8"]
 [ext_resource type="PackedScene" uid="uid://srtxkwo4qwsl" path="res://Action RPG Resources/Overlaps/hitbox.tscn" id="7_2xnsl"]
 [ext_resource type="PackedScene" uid="uid://bmnxs65dfix1f" path="res://Action RPG Resources/Overlaps/soft_collision_area.tscn" id="8_i4loc"]
+[ext_resource type="PackedScene" uid="uid://bly58m05jwqbe" path="res://Action RPG Resources/Enemies/wander_controller.tscn" id="9_tbery"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pikvw"]
 atlas = ExtResource("1_4308l")
@@ -117,6 +118,8 @@ shape = SubResource("CapsuleShape2D_idr2p")
 [node name="CollisionShape2D" parent="SoftCollisionArea" index="0"]
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_mxno7")
+
+[node name="WanderController" parent="." instance=ExtResource("9_tbery")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="death" from="Stats" to="." method="_on_stats_death"]
