@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var hurtbox = $Hurtbox
 @onready var softCollisionArea = $SoftCollisionArea
 @onready var wanderController = $WanderController
+@onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+
 enum {
 	IDLE, WANDER, CHASE
 }
@@ -87,3 +89,11 @@ func _on_stats_death():
 	deathEffect.global_position = global_position
 	queue_free()
 
+
+
+func _on_hurtbox_invincibility_ended():
+	blinkAnimationPlayer.play("End")
+
+
+func _on_hurtbox_invincibility_started():
+	blinkAnimationPlayer.play("Start")

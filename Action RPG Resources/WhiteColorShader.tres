@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://4uifkcq3birs"]
+
+[ext_resource type="Shader" path="res://Action RPG Resources/player.gdshader" id="1_khpst"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_khpst")
+shader_parameter/active = false

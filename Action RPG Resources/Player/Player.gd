@@ -8,11 +8,14 @@ enum {
 	MOVE, ROLL, ATTACK
 }
 
+const PlayerHurtSound = preload("res://Action RPG Resources/Effects/player_hurt_sound.tscn")
+
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var hitbox = $HitboxPivot/SwordHitBox
 @onready var hurtbox = $Hurtbox
+@onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 var stats = PlayerStats
 var state = MOVE
@@ -81,4 +84,17 @@ func _on_hurtbox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_effect()
+	var playerHurtSound = PlayerHurtSound.instantiate()
+	
+	get_tree().current_scene.add_child(playerHurtSound)
+	
 	print(stats.health)
+
+
+func _on_hurtbox_invincibility_started():
+	blinkAnimationPlayer.play("Start")
+
+
+
+func _on_hurtbox_invincibility_ended():
+	blinkAnimationPlayer.play("End")

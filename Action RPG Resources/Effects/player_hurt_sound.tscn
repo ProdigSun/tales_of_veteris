@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccvcda32s23n7"]
+
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="1_hefe3"]
+
+[node name="PlayerHurtSound" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource("1_hefe3")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
